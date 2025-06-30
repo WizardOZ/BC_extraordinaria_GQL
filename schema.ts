@@ -1,5 +1,24 @@
 export const typeDefs = `#graphql
+
+  type Character{
+    id: String!
+    name: String!
+    alternative_names: [String]!
+    species: String!
+    gender: String!
+    house: House
+  }
+
+  type House{
+    name: String!
+    characters: [Character]!
+  }
+
+
   type Query {
-    hola: String!
+    getCharacter(id: String!): Character
+    getCharacters(ids: [String!]): [Character!]!
   }
 `;
+
+
